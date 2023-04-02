@@ -1,4 +1,5 @@
 package proyectotowerdefense;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,7 +18,7 @@ public class InterfazGrafica extends JFrame {
     private int oleada = 0;
 
     public InterfazGrafica() {
-        setTitle("Fide - Tower Defense");
+        setTitle("Tower Defense-Grupo #4");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
@@ -78,7 +79,6 @@ public class InterfazGrafica extends JFrame {
             }
 
             private void iniciarCombate() {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         });
 
@@ -97,15 +97,12 @@ public class InterfazGrafica extends JFrame {
     private void agregarTropa(Tropa tropa) {
         // Implementar aquí la lógica de agregar tropa al panelTrop
 
+        TropaGUI tropaGUI = new TropaGUI(tropa); //crea un objeto TropaGUI para la tropa
+        panelTropas.add(tropaGUI); //agrega el objeto TropaGUI al panelTropas
+        panelTropas.revalidate(); // actualiza el panelTropas
+        panelTropas.repaint();
+    }
 
-        
 }
-    
-    
-    
-}
-  
-         
 
-    
 
