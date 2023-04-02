@@ -16,7 +16,7 @@ public class InterfazGrafica extends JFrame {
     private int tropasDisponibles = 0;
     private int oleada = 0;
 
-    // Arrays para las tropas del jugador y la CPU
+    // Arrays para almecenar las tropas del jugador y la CPU
     private Tropa[] tropasJugador = new Tropa[10];
     private Tropa[] tropasCPU = new Tropa[10];
     private int numTropasJugador = 0;
@@ -79,8 +79,10 @@ public class InterfazGrafica extends JFrame {
         btnIniciarCombate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-              //  iniciarCombate();
+              // iniciarCombate();
             }
+
+           
         });
 
         JPanel panelBotones = new JPanel();
