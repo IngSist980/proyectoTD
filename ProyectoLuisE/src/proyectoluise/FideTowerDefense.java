@@ -49,6 +49,58 @@ class FideTowerDefense {
 }
 }
 }
+ for (int i = 0; i < tropasMaximas; i++) {
+            if (tropasJugador[i] != null) {
+                castilloCPU.recibirDanio(tropasJugador[i].puntosDeDanio);
+            }
+            if (i < tropasMaximas - 1 && tropasCPU[i] != null) {
+                castilloJugador.recibirDanio(tropasCPU[i].puntosDeDanio);
+            }
+        }
+
+        System.out.println("Puntos de vida del castillo del jugador: " + castilloJugador.puntosDeVida);
+        System.out.println("Puntos de vida del castillo de la CPU: " + castilloCPU.puntosDeVida);
+
+        oleada++;
+    }
+
+    if (castilloJugador.destruido) {
+        System.out.println("¡El castillo del jugador ha sido destruido! La CPU gana.");
+    } else {
+        System.out.println("¡El castillo de la CPU ha sido destruido! El jugador gana.");
+    }
+}
+
+static void generarTropasCPU(Tropa[] tropasCPU) {
+    String[] tipos = {"Mago", "Caballero", "Arquero"};
+    Random random = new Random();
+    int limiteTropas = (int) Math.ceil((tropasCPU.length * 75.0) / 100.0);
+
+    for (int i = 0; i < tropasCPU.length; i++) {
+        tropasCPU[i] = new Tropa(tipos[random.nextInt(tipos.length)]);
+    }
+
+    int contadorTipos[] = {0, 0, 0};
+    for (int i = 0; i < tropasCPU.length; i++) {
+        for (int j = 0; j < tipos.length; j++) {
+            if (tropasCPU[i].tipo.equals(tipos[j])) {
+                contadorTipos[j]++;
+            }
         }
     }
+
+    for (int i = 0; i < contadorTipos.length; i++) {
+        if (contadorTipos[i] > limiteTropas) {
+            for (int j = 0; j < tropasCPU.length; j++) {
+                if (tropasCPU[j].tipo.equals(tipos[i])) {
+                    tropasCPU[j] = new Tropa(tipos[random.nextInt(tipos.length)]);
+                    contadorTipos[i]--;
+                    if (contadorTipos[i] <= limiteTropas) {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
 }
