@@ -8,6 +8,27 @@ package proyectoluise;
  *
  * @author Luis
  */
-public class Tropa {
-    
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Random;
+
+class Tropa {
+    String tipo;
+    double puntosDeDanio;
+
+    Tropa(String tipo) {
+        this.tipo = tipo;
+        switch (tipo) {
+            case "Mago":
+                this.puntosDeDanio = 1.5;
+                break;
+            case "Caballero":
+                this.puntosDeDanio = 2.0;
+                break;
+            case "Arquero":
+                this.puntosDeDanio = 1.0;
+                break;
+        }
+    }
 }
