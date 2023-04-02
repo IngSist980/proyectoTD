@@ -8,6 +8,14 @@ package proyectoluise;
  *
  * @author Luis
  */
-public class Castillo {
-    
+class Castillo {
+    double puntosDeVida = 10;
+    boolean destruido = false;
+
+    void recibirDanio(double danio) {
+        this.puntosDeVida -= danio;
+        if (this.puntosDeVida <= 0) {
+            this.destruido = true;
+        }
+    }
 }
