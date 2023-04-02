@@ -1,9 +1,8 @@
 package proyectotowerdefense;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class InterfazGrafica extends JFrame {
 
@@ -16,6 +15,12 @@ public class InterfazGrafica extends JFrame {
     private JPanel panelTropas;
     private int tropasDisponibles = 0;
     private int oleada = 0;
+
+    // Arrays para las tropas del jugador y la CPU
+    private Tropa[] tropasJugador = new Tropa[10];
+    private Tropa[] tropasCPU = new Tropa[10];
+    private int numTropasJugador = 0;
+    private int numTropasCPU = 0;
 
     public InterfazGrafica() {
         setTitle("Tower Defense-Grupo #4");
@@ -70,15 +75,11 @@ public class InterfazGrafica extends JFrame {
             }
         });
 
-        btnIniciarCombate = new JButton("Iniciar combate");
+        btnIniciarCombate = new JButton("Iniciar Combate");
         btnIniciarCombate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implementar aquí la lógica de preparación del combate y la CPU eligiendo tropas
-                iniciarCombate();
-            }
-
-            private void iniciarCombate() {
+              //  iniciarCombate();
             }
         });
 
@@ -91,17 +92,17 @@ public class InterfazGrafica extends JFrame {
         contentPane.add(panelBotones, BorderLayout.NORTH);
         contentPane.add(panelTropas, BorderLayout.CENTER);
         contentPane.add(lblOleada, BorderLayout.WEST);
-        contentPane.add(lblTropas, BorderLayout.SOUTH);
     }
 
     private void agregarTropa(Tropa tropa) {
-        // Implementar aquí la lógica de agregar tropa al panelTrop
-
         TropaGUI tropaGUI = new TropaGUI(tropa); //crea un objeto TropaGUI para la tropa
-        panelTropas.add(tropaGUI); //agrega el objeto TropaGUI al panelTropas
-        panelTropas.revalidate(); // actualiza el panelTropas
-        panelTropas.repaint();
-    }
+      //  panelTropas
+                
+                }
+
+
+   
+        
 
 }
 
