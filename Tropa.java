@@ -4,7 +4,7 @@ package proyectotowerdefense;
  *
  * @author R
  */
-public abstract class Tropa {
+public abstract class Tropa extends InterfazGrafica{
     
     private int vida;
     private double danio;
