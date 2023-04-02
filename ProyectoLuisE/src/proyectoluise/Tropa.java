@@ -31,4 +31,13 @@ class Tropa {
                 break;
         }
     }
+    
+    boolean ganarEnCombate(Tropa enemigo) {
+        if ((this.tipo.equals("Mago") && enemigo.tipo.equals("Caballero")) ||
+                (this.tipo.equals("Caballero") && enemigo.tipo.equals("Arquero")) ||
+                (this.tipo.equals("Arquero") && enemigo.tipo.equals("Mago"))) {
+            return true;
+        }
+        return false;
+    }
 }
