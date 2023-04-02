@@ -109,6 +109,6 @@ public class InterfazGrafica extends JFrame {
    
         
 
-}
+
 
 
