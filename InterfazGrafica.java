@@ -95,10 +95,15 @@ public class InterfazGrafica extends JFrame {
     }
 
     private void agregarTropa(Tropa tropa) {
-        TropaGUI tropaGUI = new TropaGUI(tropa); //crea un objeto TropaGUI para la tropa
-      //  panelTropas
-                
-                }
+       
+    TropaGUI tropaGUI = new TropaGUI(tropa); // crea un objeto TropaGUI para la tropa
+    panelTropas.add(tropaGUI); // agrega el objeto TropaGUI al panel de tropas
+    panelTropas.revalidate(); // actualiza la visualización del panel de tropas
+    numTropasJugador++; // aumenta el contador de tropas del jugador
+}
+
+       
+    }
 
 
    
