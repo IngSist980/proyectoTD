@@ -63,16 +63,20 @@ class FideTowerDefense {
             }
         }
 
-        System.out.println("Puntos de vida del castillo del jugador: " + castilloJugador.puntosDeVida);
-        System.out.println("Puntos de vida del castillo de la CPU: " + castilloCPU.puntosDeVida);
+        System.out.println("Puntos de vida del castillo del jugador: "
+                + castilloJugador.puntosDeVida);
+        System.out.println("Puntos de vida del castillo de la CPU: " 
+                + castilloCPU.puntosDeVida);
 
         oleada++;
     }
 
     if (castilloJugador.destruido) {
-        System.out.println("¡El castillo del jugador ha sido destruido! La CPU gana.");
+        System.out.println
+        ("¡El castillo del jugador ha sido destruido! La CPU gana.");
     } else {
-        System.out.println("¡El castillo de la CPU ha sido destruido! El jugador gana.");
+        System.out.println
+        ("¡El castillo de la CPU ha sido destruido! El jugador gana.");
     }
 }
 
@@ -98,7 +102,8 @@ static void generarTropasCPU(Tropa[] tropasCPU) {
         if (contadorTipos[i] > limiteTropas) {
             for (int j = 0; j < tropasCPU.length; j++) {
                 if (tropasCPU[j].tipo.equals(tipos[i])) {
-                    tropasCPU[j] = new Tropa(tipos[random.nextInt(tipos.length)]);
+                    tropasCPU[j] = new 
+        Tropa(tipos[random.nextInt(tipos.length)]);
                     contadorTipos[i]--;
                     if (contadorTipos[i] <= limiteTropas) {
                         break;
