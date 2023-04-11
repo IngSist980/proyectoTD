@@ -1,23 +1,21 @@
-package proyectotowerdefense;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package proyectoluise;
 
 /**
  *
- * @author Ryan Morales. 
+ * @author Luis
  */
-public class Castillo {
-    
-    private int vida;
+class Castillo {
+    double puntosDeVida = 10;
+    boolean destruido = false;
 
-    public Castillo(int vida) {
-        this.vida = vida;
+    void recibirDanio(double danio) {
+        this.puntosDeVida -= danio;
+        if (this.puntosDeVida <= 0) {
+            this.destruido = true;
+        }
     }
-
-    public void recibirDanio(int danio) {
-        vida -= danio;
-    }
-
-    public boolean estaEnPie() {
-        return vida > 0;
-    }
-    
 }
