@@ -3,7 +3,7 @@ package proyectoluise;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Random;
+//import java.util.Random;
 
 /**
  *
@@ -16,6 +16,7 @@ class FideTowerDefense {
     public static void main(String[] args) throws IOException {
         Castillo castilloJugador = new Castillo();
         Castillo castilloCPU = new Castillo();
+        SoundPlayer s = new SoundPlayer();
 
         int oleada = 1;
 
@@ -79,14 +80,14 @@ class FideTowerDefense {
 
 static void generarTropasCPU(Tropa[] tropasCPU) {
     String[] tipos = {"Mago", "Caballero", "Arquero"};
-    Random random = new Random();
     int limiteTropas = (int) Math.ceil((tropasCPU.length * 75.0) / 100.0);
 
     for (int i = 0; i < tropasCPU.length; i++) {
-        tropasCPU[i] = new Tropa(tipos[random.nextInt(tipos.length)]);
+        int randomIndex = (int) (Math.random() * tipos.length);
+        tropasCPU[i] = new Tropa(tipos[randomIndex]);
     }
 
-    int contadorTipos[] = {0, 0, 0};
+    int[] contadorTipos = {0, 0, 0};
     for (int i = 0; i < tropasCPU.length; i++) {
         for (int j = 0; j < tipos.length; j++) {
             if (tropasCPU[i].tipo.equals(tipos[j])) {
@@ -97,17 +98,17 @@ static void generarTropasCPU(Tropa[] tropasCPU) {
 
     for (int i = 0; i < contadorTipos.length; i++) {
         if (contadorTipos[i] > limiteTropas) {
-            for (int j = 0; j < tropasCPU.length; j++) {
+            int count = contadorTipos[i] - limiteTropas;
+            for (int j = 0; j < tropasCPU.length && count > 0; j++) {
                 if (tropasCPU[j].tipo.equals(tipos[i])) {
-                    tropasCPU[j] = new 
-        Tropa(tipos[random.nextInt(tipos.length)]);
-                    contadorTipos[i]--;
-                    if (contadorTipos[i] <= limiteTropas) {
-                        break;
-                    }
+                    int randomIndex = (int) (Math.random() * tipos.length);
+                    tropasCPU[j] = new Tropa(tipos[randomIndex]);
+                    count--;
                 }
             }
         }
     }
 }
 }
+    
+
