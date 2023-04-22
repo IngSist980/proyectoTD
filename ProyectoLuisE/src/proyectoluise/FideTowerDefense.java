@@ -1,9 +1,6 @@
 package proyectoluise;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-//import java.util.Random;
+
 
 /**
  *
@@ -21,6 +18,7 @@ class FideTowerDefense {
         Castillo castilloJugador = new Castillo();
         Castillo castilloCPU = new Castillo();
         SoundPlayer s = new SoundPlayer();
+        s.reproducirEfectoDeSonido("mario.wav");
 
         int oleada = 1;
 
@@ -74,16 +72,20 @@ class FideTowerDefense {
                     + castilloJugador.puntosDeVida);
             System.out.println("Puntos de vida del castillo de la CPU: "
                     + castilloCPU.puntosDeVida);
+            s.reproducirEfectoDeSonido("fin_oleada.wav");
 
             oleada++;
         }
+        
 
         if (castilloJugador.destruido) {
             System.out.println
                     ("¡El castillo del jugador ha sido destruido! La CPU gana.");
+            s.reproducirEfectoDeSonido("derrota.wav");
         } else {
             System.out.println
                     ("¡El castillo de la CPU ha sido destruido! El jugador gana.");
+            s.reproducirEfectoDeSonido("victoria.wav");
         }
     }
     static void generarTropasCPU(Cola tropasCPU, int tropasMaximas) {

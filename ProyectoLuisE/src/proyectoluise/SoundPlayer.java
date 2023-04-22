@@ -19,8 +19,7 @@ public class SoundPlayer {
 
     public void reproducirEfectoDeSonido(String nombreDelArchivo) {
         try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream
-        (new File(nombreDelArchivo).getAbsoluteFile());
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("resources/" + nombreDelArchivo).getAbsoluteFile());
             clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
@@ -32,7 +31,4 @@ public class SoundPlayer {
     public void detenerEfectoDeSonido() {
         clip.stop();
     }
-    
 }
-
-    
